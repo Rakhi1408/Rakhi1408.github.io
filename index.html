@@ -113,10 +113,48 @@ ul.clean li span{color:var(--muted)}
 .contact{margin-top:72px;padding:48px 0 56px;border-top:1px solid var(--line)}
 .contact p{max-width:52ch;color:var(--muted)}
 footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
+html,body{overflow-x:clip}
+:root{--hero:#1637c9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--hero:#0d2466}}
+:root[data-theme="dark"]{--hero:#0d2466}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:10}
+nav a.active{color:var(--ink);box-shadow:0 2px 0 var(--accent)}
+.btn{transition:transform .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+h2::after{content:"";display:block;width:44px;height:4px;border-radius:2px;background:var(--accent);margin-top:10px}
+.hero{position:relative;isolation:isolate;color:#fff;padding:72px 0 56px}
+.hero::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;background:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px) 0 0/44px 44px,var(--hero)}
+.hero h1{color:#fff;font-size:clamp(2.6rem,7.5vw,5.2rem);max-width:14ch}
+.hero .lead{color:rgba(255,255,255,.85)}
+.hero .avail i{box-shadow:0 0 0 4px rgba(63,207,142,.3);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(63,207,142,0)}}
+.hero .btn{background:transparent;border-color:rgba(255,255,255,.5);color:#fff}
+.hero .btn:hover{border-color:#fff}
+.hero .btn.primary{background:#fff;border-color:#fff;color:#0d2466}
+.status{color:var(--ink);box-shadow:0 24px 50px -24px rgba(0,0,0,.55)}
+.cols>div{border:1px solid var(--line);border-top:4px solid var(--accent);background:var(--surface);border-radius:12px;padding:22px;transition:transform .25s,box-shadow .25s}
+.cols>div:hover{transform:translateY(-4px);box-shadow:0 18px 30px -20px rgba(23,33,43,.45)}
+.cols>div:nth-child(2){border-top-color:var(--ok)}
+.cols>div:nth-child(3){border-top-color:#e0a21a}
+.cols>div:nth-child(4){border-top-color:#c2447a}
+.ic{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:color-mix(in srgb,var(--accent) 14%,transparent);font-size:1.45rem;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 16px;font:500 .9rem var(--body);cursor:pointer;transition:background .2s}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.row{transition:background .2s,padding .2s}
+.row:hover{background:color-mix(in srgb,var(--accent) 7%,transparent);padding-left:12px;padding-right:12px}
+.row[hidden]{display:none}
+.row small{padding:4px 12px;border-radius:999px;background:color-mix(in srgb,hsl(var(--h,220) 75% 50%) 18%,transparent)}
+.job{border-left:2px solid var(--line);padding-left:26px;position:relative}
+.job::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--bg)}
+.tag{display:inline-block;margin:0 8px 8px 0;padding:3px 11px;border:1px solid var(--line);border-radius:6px;background:var(--surface);font-size:.9rem;color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.hero .avail i{animation:none}.btn,.cols>div,.row{transition:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar span{animation:none}}
 </style>
 </head>
 <body>
+<div id="progress" aria-hidden="true"></div>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top">Rakhi Vishwakarma</a>
@@ -133,7 +171,7 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
 </header>
 
 <main id="top" class="wrap">
-  <section style="padding-top:64px">
+  <section class="hero">
     <h1>I keep cloud systems up, cheap and secure.</h1>
     <p class="lead">I’m an AWS cloud engineer in Mumbai. I run Multi-AZ production for a large insurance client, and I write the Python that automates the repetitive parts.</p>
     <div class="avail"><i aria-hidden="true"></i>Open to startup roles and freelance projects from mid-November 2026</div>
@@ -161,10 +199,10 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
   <section id="help">
     <h2>How I can help your team</h2>
     <div class="cols">
-      <div><h3>Lower your AWS bill</h3><p>I review EC2 and EBS usage against CloudWatch data and right-size resources without hurting performance. This cut spend by 18% in production.</p></div>
-      <div><h3>Survive failures</h3><p>Multi-AZ designs with load balancing and Auto Scaling, plus backup and recovery drills against a recovery time target.</p></div>
-      <div><h3>Spot problems sooner</h3><p>CloudWatch dashboards and alarms, and reviews of IAM policies, Security Groups and WAF rules.</p></div>
-      <div><h3>Automate deployments</h3><p>Image pipelines and Python or Bash scripts that remove manual steps and configuration mistakes.</p></div>
+      <div><span class="ic" aria-hidden="true">💸</span><h3>Lower your AWS bill</h3><p>I review EC2 and EBS usage against CloudWatch data and right-size resources without hurting performance. This cut spend by 18% in production.</p></div>
+      <div><span class="ic" aria-hidden="true">🛡️</span><h3>Survive failures</h3><p>Multi-AZ designs with load balancing and Auto Scaling, plus backup and recovery drills against a recovery time target.</p></div>
+      <div><span class="ic" aria-hidden="true">🔭</span><h3>Spot problems sooner</h3><p>CloudWatch dashboards and alarms, and reviews of IAM policies, Security Groups and WAF rules.</p></div>
+      <div><span class="ic" aria-hidden="true">⚙️</span><h3>Automate deployments</h3><p>Image pipelines and Python or Bash scripts that remove manual steps and configuration mistakes.</p></div>
     </div>
   </section>
 
@@ -199,6 +237,7 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
   <section id="projects">
     <h2>Projects</h2>
     <p class="lead" style="margin-top:0">Machine learning work in Python and Jupyter. The code for each one is on GitHub.</p>
+    <div class="chips" id="chips" role="group" aria-label="Filter projects by type"></div>
     <div class="rows">
       <div class="row"><a href="https://github.com/Rakhi1408/Credit-Card-Fruad">Credit card fraud detection</a><p>Classifies fraudulent transactions and compares several algorithms on a transaction dataset.</p><small>Classification</small></div>
       <div class="row"><a href="https://github.com/Rakhi1408/CUSTOMER_CHURN-_PREDICTION">Customer churn prediction</a><p>Predicts which customers are likely to leave, so a business can act early.</p><small>Classification</small></div>
@@ -237,7 +276,7 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
       <dt>Networking</dt><dd>VPC, subnetting, route tables, NAT and internet gateways, VPC peering, NACLs</dd>
       <dt>Code</dt><dd>Python, Bash, SQL, C++, Docker</dd>
       <dt>Data and ML</dt><dd>Scikit-learn, Pandas, NumPy</dd>
-      <dt>Systems</dt><dd>Linux (RHEL, Ubuntu, Amazon Linux), Windows Server</dd>
+      <dt>Systems</dt><dd>RHEL, Ubuntu, Amazon Linux, Windows Server</dd>
     </dl>
   </section>
 
@@ -292,6 +331,44 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
     this.textContent=down?'Restore zone A':'Take down zone A';
     this.setAttribute('aria-pressed',down);
   });
+  var prog=$('progress');
+  function onScroll(){var h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'}
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var links={};
+  document.querySelectorAll('nav a[href^="#"]').forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){for(var k in links)links[k].classList.toggle('active',k===e.target.id)}
+  })},{rootMargin:'-40% 0px -55% 0px'});
+  Object.keys(links).forEach(function(k){var s=$(k);if(s)io.observe(s)});
+
+  var calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.facts dt').forEach(function(dt){
+    var m=dt.textContent.match(/^([\d.]+)%$/);if(!m||calm)return;
+    var end=parseFloat(m[1]),dec=m[1].indexOf('.')>-1?1:0,t0;
+    function step(t){t0=t0||t;var p=Math.min((t-t0)/1200,1);dt.textContent=(end*p).toFixed(dec)+'%';if(p<1)requestAnimationFrame(step)}
+    requestAnimationFrame(step);
+  });
+
+  var rows=[].slice.call(document.querySelectorAll('.row')),tags=['All'],cw=$('chips');
+  rows.forEach(function(r){
+    var sm=r.querySelector('small'),t=sm.textContent;
+    if(tags.indexOf(t)<0)tags.push(t);
+    r.dataset.tag=t;sm.style.setProperty('--h',tags.indexOf(t)*70+200);
+  });
+  tags.forEach(function(t){
+    var b=document.createElement('button');
+    b.type='button';b.className='chip';b.textContent=t;b.setAttribute('aria-pressed',t==='All');
+    b.onclick=function(){
+      [].forEach.call(cw.children,function(c){c.setAttribute('aria-pressed',c===b)});
+      rows.forEach(function(r){r.hidden=!(t==='All'||r.dataset.tag===t)});
+    };
+    cw.appendChild(b);
+  });
+
+  document.querySelectorAll('dl.plain dd').forEach(function(d){
+    d.innerHTML=d.textContent.split(', ').map(function(s){return '<span class="tag">'+s+'</span>'}).join('');
+  });
+
   var root=document.documentElement,btn=document.getElementById('theme');
   btn.addEventListener('click',function(){
     var dark=root.getAttribute('data-theme')==='dark'||
