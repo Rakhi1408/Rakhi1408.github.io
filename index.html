@@ -70,6 +70,26 @@ section{padding:72px 0 0}
 .cols>div{border-top:2px solid var(--ink);padding-top:16px}
 .cols p{margin:8px 0 0;color:var(--muted)}
 
+:root{--bad:#c93a3a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bad:#ff7b7b}}
+:root[data-theme="dark"]{--bad:#ff7b7b}
+.demo{margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px}
+.lb{display:block;width:max-content;margin:0 auto;padding:10px 22px;border-radius:8px;background:var(--ink);color:var(--bg);font-weight:500}
+.zones{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px;position:relative}
+.zones::before{content:"";position:absolute;left:25%;right:25%;top:-22px;height:22px;border:2px solid var(--ok);border-bottom:0;border-radius:10px 10px 0 0;transition:border-color .4s}
+.zone{border:2px solid var(--ok);border-radius:10px;padding:16px;transition:border-color .4s,background .4s}
+.zone h3{font-size:1rem;margin-bottom:10px}
+.node{display:block;padding:8px 12px;margin-top:8px;border-radius:6px;border:1px solid var(--line);font-size:.92rem;transition:all .4s}
+.meter{height:8px;background:var(--line);border-radius:4px;margin-top:14px;overflow:hidden}
+.meter i{display:block;height:100%;width:50%;background:var(--ok);transition:width .8s ease,background .4s}
+.pct{display:block;margin-top:6px;font-size:.88rem;color:var(--muted)}
+.zone.down{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 8%,transparent)}
+.zone.down .node{border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.zone.down .meter i{background:var(--bad)}
+.demo.fail .zones::before{border-color:var(--bad) var(--ok) transparent var(--ok);border-left-color:var(--bad)}
+.zone.promoted .db{border-color:var(--accent);color:var(--accent)}
+#demo-msg{margin:20px 0 14px;min-height:3.2em}
+@media (max-width:560px){.zones{grid-template-columns:1fr}.zones::before{display:none}}
 .rows{margin-top:24px;border-top:1px solid var(--line)}
 .row{display:grid;grid-template-columns:minmax(180px,1fr) 2fr auto;gap:8px 24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
 .row a{font:700 1.1rem var(--display);color:var(--ink)}
@@ -102,6 +122,7 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
     <a class="brand" href="#top">Rakhi Vishwakarma</a>
     <nav aria-label="Sections">
       <a href="#help">Services</a>
+      <a href="#demo">Failover demo</a>
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
@@ -144,6 +165,34 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
       <div><h3>Survive failures</h3><p>Multi-AZ designs with load balancing and Auto Scaling, plus backup and recovery drills against a recovery time target.</p></div>
       <div><h3>Spot problems sooner</h3><p>CloudWatch dashboards and alarms, and reviews of IAM policies, Security Groups and WAF rules.</p></div>
       <div><h3>Automate deployments</h3><p>Image pipelines and Python or Bash scripts that remove manual steps and configuration mistakes.</p></div>
+    </div>
+  </section>
+
+  <section id="demo">
+    <h2>Try a failover</h2>
+    <p class="lead" style="margin-top:0">This is the Multi-AZ pattern I run in production. Take down one zone and watch where the traffic goes.</p>
+    <div class="demo" id="demo-box">
+      <span class="node lb">Load balancer</span>
+      <div class="zones">
+        <div class="zone" id="zA">
+          <h3>Availability zone A</h3>
+          <span class="node srv">Web server 1</span>
+          <span class="node srv">Web server 2</span>
+          <span class="node db" id="dbA">Database: primary</span>
+          <div class="meter"><i id="mA"></i></div>
+          <span class="pct" id="pA">Serving 50% of traffic</span>
+        </div>
+        <div class="zone" id="zB">
+          <h3>Availability zone B</h3>
+          <span class="node srv">Web server 3</span>
+          <span class="node srv">Web server 4</span>
+          <span class="node db" id="dbB">Database: standby, replicating</span>
+          <div class="meter"><i id="mB"></i></div>
+          <span class="pct" id="pB">Serving 50% of traffic</span>
+        </div>
+      </div>
+      <p id="demo-msg" role="status">Both zones are healthy and share traffic evenly.</p>
+      <button class="btn primary" id="fail" type="button" aria-pressed="false">Take down zone A</button>
     </div>
   </section>
 
@@ -225,6 +274,24 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
     s.style.animationDelay=(i*12)+'ms';
     bar.appendChild(s);
   }
+  var down=false,$=function(id){return document.getElementById(id)};
+  $('fail').addEventListener('click',function(){
+    down=!down;
+    $('zA').classList.toggle('down',down);
+    $('zB').classList.toggle('promoted',down);
+    $('demo-box').classList.toggle('fail',down);
+    $('mA').style.width=down?'0%':'50%';
+    $('mB').style.width=down?'100%':'50%';
+    $('pA').textContent=down?'Offline, serving 0% of traffic':'Serving 50% of traffic';
+    $('pB').textContent=down?'Serving 100% of traffic':'Serving 50% of traffic';
+    $('dbA').textContent=down?'Database: unreachable':'Database: primary';
+    $('dbB').textContent=down?'Database: standby promoted to primary':'Database: standby, replicating';
+    $('demo-msg').textContent=down
+      ?'Zone A is down. The load balancer stopped sending it requests and the standby database took over, so users keep being served. In real life the database failover takes a minute or two, which is why I test it in recovery drills.'
+      :'Both zones are healthy and share traffic evenly.';
+    this.textContent=down?'Restore zone A':'Take down zone A';
+    this.setAttribute('aria-pressed',down);
+  });
   var root=document.documentElement,btn=document.getElementById('theme');
   btn.addEventListener('click',function(){
     var dark=root.getAttribute('data-theme')==='dark'||
