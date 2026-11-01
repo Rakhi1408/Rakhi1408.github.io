@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rakhi Vishwakarma — AWS Cloud Administrator</title>
+<meta name="description" content="Rakhi Vishwakarma: AWS Certified Solutions Architect and Developer (Associate) building resilient, secure, cost-efficient cloud for BFSI. Mumbai, India.">
+<meta property="og:title" content="Rakhi Vishwakarma — AWS Cloud Administrator">
+<meta property="og:description" content="Resilient, secure, cost-efficient cloud for BFSI. AWS Solutions Architect &amp; Developer.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070b16;--bg2:#0d1426;--card:rgba(255,255,255,.05);--bd:rgba(255,255,255,.1);--text:#e9eefb;--muted:#9aa7c4;--a:#5b8cff;--b:#a06bff;--c:#22d3ee;--g:linear-gradient(120deg,var(--c),var(--a) 45%,var(--b))}
+:root[data-theme="light"]{--bg:#f5f7fd;--bg2:#e9eefb;--card:rgba(255,255,255,.75);--bd:rgba(20,32,60,.12);--text:#111a30;--muted:#55627f;--a:#2f63e8;--b:#7c3aed;--c:#0891b2}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(600px 400px at 12% 8%,color-mix(in srgb,var(--a) 28%,transparent),transparent),radial-gradient(500px 420px at 90% 30%,color-mix(in srgb,var(--b) 24%,transparent),transparent),radial-gradient(500px 400px at 30% 95%,color-mix(in srgb,var(--c) 16%,transparent),transparent)}
+h1,h2,h3,.num{font-family:"Space Grotesk",Inter,sans-serif}
+a{color:var(--a)}.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--g);z-index:30}
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--bd)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:58px;gap:14px}
+nav b{font-family:"Space Grotesk";font-size:18px;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.menu{display:flex;gap:18px;align-items:center;overflow-x:auto;white-space:nowrap}.menu a{color:var(--muted);text-decoration:none;font-size:14px}.menu a:hover{color:var(--text)}
+#theme{border:1px solid var(--bd);background:var(--card);color:var(--text);border-radius:50%;width:34px;height:34px;cursor:pointer}
+.hero{min-height:86vh;display:flex;flex-direction:column;justify-content:center;padding:70px 0 40px}
+.pill{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--bd);background:var(--card);padding:6px 14px;border-radius:999px;font-size:13px;color:var(--muted);width:max-content}
+.pill i{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 4px rgba(52,211,153,.2)}
+h1{font-size:clamp(40px,8.5vw,84px);line-height:1.02;margin:18px 0 10px;letter-spacing:-.02em}
+h1 span{background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font:500 clamp(18px,3.4vw,28px)/1.3 "Space Grotesk";color:var(--muted);min-height:1.4em}.role b{color:var(--text)}.cur{display:inline-block;width:2px;height:1em;background:var(--c);margin-left:3px;vertical-align:-.12em;animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+.lead{max-width:620px;color:var(--muted);font-size:18px;margin:18px 0 26px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:12px 22px;border-radius:12px;border:1px solid var(--bd);background:var(--card);color:var(--text);text-decoration:none;font:600 14px Inter;cursor:pointer;transition:.25s}
+.btn:hover{transform:translateY(-2px);border-color:var(--a)}.btn.p{background:var(--g);border:0;color:#fff;box-shadow:0 8px 30px -8px var(--a)}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}.badges span{font-size:13px;padding:6px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--card)}
+.strip{overflow:hidden;border-block:1px solid var(--bd);padding:14px 0;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.track{display:flex;gap:34px;width:max-content;animation:mv 32s linear infinite;color:var(--muted);font:500 15px "Space Grotesk"}@keyframes mv{to{transform:translateX(-50%)}}
+section{padding:56px 0}
+.eyebrow{font:600 12px Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--c)}
+h2{font-size:clamp(28px,5vw,40px);margin:6px 0 24px;letter-spacing:-.01em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:22px;backdrop-filter:blur(8px);transition:.3s}
+.card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--a) 60%,transparent)}
+.ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:var(--g);margin-bottom:12px}
+.card h3{margin:0 0 6px;font-size:19px}.card p{margin:0;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.num{font-size:clamp(36px,6vw,52px);font-weight:700;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1}.stat span{color:var(--muted);font-size:14px}
+.arch{padding:18px;overflow-x:auto}.arch svg{min-width:640px;width:100%;height:auto;display:block}
+.arch .box{fill:var(--card);stroke:var(--bd)}.arch .az{fill:none;stroke:var(--a);stroke-dasharray:5 5}.arch text{fill:var(--text);font:500 13px Inter}.arch .sm{fill:var(--muted);font-size:11px}
+.arch .ln{stroke:var(--c);stroke-width:1.6;fill:none}.arch .dot{fill:var(--c)}
+.tl{border-left:2px solid var(--bd);padding-left:24px;margin-left:8px}.job{position:relative;margin-bottom:18px}
+.job::before{content:"";position:absolute;left:-34px;top:26px;width:16px;height:16px;border-radius:50%;background:var(--g);box-shadow:0 0 0 5px var(--bg)}
+.row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.when{color:var(--muted);font-size:14px}
+ul{padding-left:20px;margin:12px 0 0}li{margin:6px 0;color:var(--muted)}li b{color:var(--text)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:5px 12px;border-radius:999px;font-size:13px;border:1px solid var(--bd);background:var(--card)}
+.card h4{margin:0 0 12px;font:600 12px Inter;letter-spacing:.12em;text-transform:uppercase;color:var(--c)}
+.cert{display:flex;gap:14px;align-items:center}.hex{flex:none;width:48px;height:54px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--g);display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff;text-align:center;line-height:1.1}
+.cert small{display:block;color:var(--muted)}
+.cta{text-align:center;padding:48px 24px;border-radius:26px;background:linear-gradient(135deg,color-mix(in srgb,var(--a) 30%,transparent),color-mix(in srgb,var(--b) 26%,transparent));border:1px solid var(--bd)}
+.cta h2{margin-top:0}.cta p{color:var(--muted);max-width:480px;margin:0 auto 22px}.cta .btns{justify-content:center}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:30px 0 44px}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.track,.cur{animation:none}html{scroll-behavior:auto}}
+@media print{nav,#bar{display:none}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<nav><div class="wrap"><b>RV.</b><div class="menu"><a href="#work">What I do</a><a href="#arch">Architecture</a><a href="#exp">Experience</a><a href="#skills">Skills</a><a href="#certs">Certs</a><a href="#contact">Contact</a><button id="theme" aria-label="Toggle theme">◐</button></div></div></nav>
+
+<main class="wrap">
+<header class="hero">
+  <div class="pill"><i></i> Mumbai, India · BFSI cloud</div>
+  <h1>Hi, I’m <span>Rakhi Vishwakarma</span></h1>
+  <div class="role">I build <b id="typed"></b><span class="cur"></span></div>
+  <p class="lead">AWS Cloud Administrator keeping insurance-grade workloads fast, secure and always on. Certified Solutions Architect and Developer, with Python and ML in the toolkit.</p>
+  <div class="btns">
+    <a class="btn p" href="Rakhi_Vishwakarma_Resume.pdf" download>Download resume</a>
+    <a class="btn" href="https://www.linkedin.com/in/rakhivishwakarma" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <button class="btn" id="copy" data-email="rrvishwakarma2002@gmail.com">Copy email</button>
+  </div>
+  <div class="badges"><span>🏅 AWS Solutions Architect – Associate</span><span>🏅 AWS Developer – Associate</span><span>🎓 Digital Sovereignty on AWS</span></div>
+</header>
+</main>
+
+<div class="strip"><div class="track" id="track"></div></div>
+
+<main class="wrap">
+<section id="stats" class="rv">
+  <div class="eyebrow">Impact</div><h2>Numbers that matter</h2>
+  <div class="stats">
+    <div class="card stat"><div class="num" data-n="99.9" data-d="1" data-s="%">0</div><span>uptime across 30+ EC2 instances</span></div>
+    <div class="card stat"><div class="num" data-n="18" data-s="%">0</div><span>infrastructure cost savings</span></div>
+    <div class="card stat"><div class="num" data-n="40" data-s="%">0</div><span>faster deployments</span></div>
+    <div class="card stat"><div class="num" data-n="30" data-p="&lt; " data-s=" min">0</div><span>RTO in DR simulations</span></div>
+  </div>
+</section>
+
+<section id="work" class="rv">
+  <div class="eyebrow">What I do</div><h2>Cloud that stays up, stays secure, stays lean</h2>
+  <div class="grid">
+    <div class="card"><div class="ic">🛡️</div><h3>High availability</h3><p>Multi-AZ ALB and Auto Scaling designs that keep core insurance applications running.</p></div>
+    <div class="card"><div class="ic">💸</div><h3>Cost &amp; performance</h3><p>Right-sizing EC2/EBS from CloudWatch data: 18% lower spend, no SLA impact.</p></div>
+    <div class="card"><div class="ic">🔁</div><h3>Resilience &amp; DR</h3><p>4+ disaster-recovery simulations with recovery time under 30 minutes.</p></div>
+    <div class="card"><div class="ic">🔐</div><h3>Security &amp; compliance</h3><p>IAM, Security Groups and WAF audits aligned to BFSI requirements.</p></div>
+    <div class="card"><div class="ic">⚙️</div><h3>Automation</h3><p>Golden AMI pipelines that cut deployment time 40% and remove manual errors.</p></div>
+    <div class="card"><div class="ic">📈</div><h3>Observability</h3><p>CloudWatch dashboards that cut mean-time-to-detect by 25%.</p></div>
+  </div>
+</section>
+
+<section id="arch" class="rv">
+  <div class="eyebrow">Architecture</div><h2>The Multi-AZ pattern I run</h2>
+  <div class="card arch">
+    <svg viewBox="0 0 700 300" role="img" aria-label="Diagram: Route 53 to ALB to Auto Scaling EC2 instances across two Availability Zones, with RDS and CloudWatch">
+      <rect class="box" x="20" y="120" width="90" height="50" rx="10"/><text x="65" y="150" text-anchor="middle">Route 53</text>
+      <rect class="box" x="150" y="120" width="90" height="50" rx="10"/><text x="195" y="150" text-anchor="middle">ALB + WAF</text>
+      <rect class="az" x="290" y="20" width="270" height="115" rx="14"/><text class="sm" x="302" y="40">Availability Zone A</text>
+      <rect class="az" x="290" y="155" width="270" height="115" rx="14"/><text class="sm" x="302" y="175">Availability Zone B</text>
+      <rect class="box" x="310" y="55" width="110" height="60" rx="10"/><text x="365" y="83" text-anchor="middle">EC2 · ASG</text><text class="sm" x="365" y="100" text-anchor="middle">app tier</text>
+      <rect class="box" x="435" y="55" width="110" height="60" rx="10"/><text x="490" y="83" text-anchor="middle">RDS</text><text class="sm" x="490" y="100" text-anchor="middle">primary</text>
+      <rect class="box" x="310" y="190" width="110" height="60" rx="10"/><text x="365" y="218" text-anchor="middle">EC2 · ASG</text><text class="sm" x="365" y="235" text-anchor="middle">app tier</text>
+      <rect class="box" x="435" y="190" width="110" height="60" rx="10"/><text x="490" y="218" text-anchor="middle">RDS</text><text class="sm" x="490" y="235" text-anchor="middle">standby</text>
+      <rect class="box" x="590" y="120" width="92" height="50" rx="10"/><text x="636" y="143" text-anchor="middle">CloudWatch</text><text class="sm" x="636" y="159" text-anchor="middle">alarms · logs</text>
+      <path class="ln" d="M110 145H150M240 145H265M265 85V220M265 85H310M265 220H310M420 85H435M420 220H435M545 85H570V145H590M545 220H570V145"/>
+      <circle class="dot" cx="265" cy="145" r="4"/>
+    </svg>
+    <p class="when" style="margin:10px 0 0">Illustrative reference pattern based on the type of environments I operate.</p>
+  </div>
+</section>
+
+<section id="exp" class="rv">
+  <div class="eyebrow">Experience</div><h2>Where I’ve worked</h2>
+  <div class="tl">
+    <div class="card job">
+      <div class="row"><h3>AWS Cloud Administrator</h3><span class="when">Nov 2024 – Present</span></div>
+      <div class="when">Tata Consultancy Services · Client: ICICI Prudential Life Insurance</div>
+      <ul>
+        <li>Architected high-availability systems with <b>99.9% uptime</b> across 30+ EC2 instances using Multi-AZ ALB and Auto Scaling.</li>
+        <li>Cut infrastructure spend by <b>18%</b> by right-sizing EC2/EBS from CloudWatch metrics.</li>
+        <li>Automated golden AMI pipelines, reducing deployment time by <b>40%</b>.</li>
+        <li>Led <b>4+ disaster recovery simulations</b> with RTO under 30 minutes.</li>
+        <li>Built CloudWatch dashboards that cut MTTD by <b>25%</b>; audited IAM, Security Groups and WAF for BFSI compliance.</li>
+        <li>Standardized incident runbooks and mentored <b>3+ junior engineers</b>.</li>
+        <li>Contributed to the ICICI Prudential company rebranding initiative on the cloud infrastructure side.</li>
+      </ul>
+    </div>
+    <div class="card job">
+      <div class="row"><h3>Graduate Trainee</h3><span class="when">Aug 2024 – Oct 2024</span></div>
+      <div class="when">Tata Consultancy Services</div>
+      <ul><li>Enterprise training in cloud architecture, Linux administration (RHEL/Ubuntu) and ITSM; ran HA drills validating a 99.9% uptime benchmark.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="rv">
+  <div class="eyebrow">Toolbox</div><h2>Skills</h2>
+  <div class="grid">
+    <div class="card"><h4>AWS</h4><div class="chips"><span class="chip">EC2</span><span class="chip">S3</span><span class="chip">IAM</span><span class="chip">ALB / ASG</span><span class="chip">RDS</span><span class="chip">Lambda</span><span class="chip">ECS</span><span class="chip">CloudWatch</span><span class="chip">CloudTrail</span><span class="chip">Athena</span></div></div>
+    <div class="card"><h4>Networking &amp; Security</h4><div class="chips"><span class="chip">VPC</span><span class="chip">Route 53</span><span class="chip">NACLs</span><span class="chip">WAF</span><span class="chip">Shield</span><span class="chip">KMS</span><span class="chip">AWS Config</span></div></div>
+    <div class="card"><h4>Code &amp; Data</h4><div class="chips"><span class="chip">Python</span><span class="chip">Bash</span><span class="chip">SQL</span><span class="chip">C++</span><span class="chip">Scikit-Learn</span><span class="chip">Pandas</span><span class="chip">NumPy</span></div></div>
+    <div class="card"><h4>Platforms</h4><div class="chips"><span class="chip">Linux (RHEL, Ubuntu)</span><span class="chip">Windows Server</span><span class="chip">Docker</span><span class="chip">Digital Sovereignty</span></div></div>
+  </div>
+</section>
+
+<section id="certs" class="rv">
+  <div class="eyebrow">Credentials</div><h2>Certifications, awards &amp; education</h2>
+  <div class="grid">
+    <div class="card cert"><div class="hex">AWS<br>DEV</div><div>AWS Certified Developer – Associate<small>Valid through Oct 2029</small></div></div>
+    <div class="card cert"><div class="hex">AWS<br>SAA</div><div>AWS Certified Solutions Architect – Associate<small>Valid through Nov 2028</small></div></div>
+    <div class="card cert"><div class="hex">DS<br>ESS</div><div>Digital Sovereignty Essentials<small>AWS Partner training badge · Oct 2026</small></div></div>
+    <div class="card cert"><div class="hex">DS<br>TECH</div><div>Digital Sovereignty on AWS (Technical)<small>AWS Partner training badge · Oct 2026</small></div></div>
+    <div class="card cert"><div class="hex">IBM<br>ML</div><div>IBM Machine Learning Professional Certificate<small>Coursera</small></div></div>
+    <div class="card cert"><div class="hex">TCS<br>🏆</div><div>AI Idea Igniter &amp; AI Spark<small>TCS Innovation Awards · 2025</small></div></div>
+    <div class="card cert"><div class="hex">B.<br>TECH</div><div>St. Francis Institute of Technology<small>E&amp;TC Engineering · Distinction · Honours in AI/ML · 2020–24</small></div></div>
+  </div>
+</section>
+
+<section id="contact" class="rv">
+  <div class="cta"><h2>Let’s build something reliable</h2><p>Open to conversations about cloud, AWS and data-driven engineering.</p>
+  <div class="btns"><a class="btn p" href="mailto:rrvishwakarma2002@gmail.com">Email me</a><a class="btn" href="https://www.linkedin.com/in/rakhivishwakarma" target="_blank" rel="noopener">LinkedIn ↗</a></div></div>
+</section>
+</main>
+<footer>© <span id="y"></span> Rakhi Vishwakarma · Made in Mumbai</footer>
+
+<script>
+var $=function(s){return document.querySelector(s)},root=document.documentElement;
+$('#y').textContent=new Date().getFullYear();
+try{var t=localStorage.getItem('theme');if(t)root.setAttribute('data-theme',t)}catch(e){}
+$('#theme').onclick=function(){var d=root.getAttribute('data-theme');var n=(d||'dark')==='dark'?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}};
+$('#copy').onclick=function(){var b=this,e=b.dataset.email;(navigator.clipboard?navigator.clipboard.writeText(e):Promise.reject()).then(function(){b.textContent='Copied ✓'},function(){location.href='mailto:'+e});setTimeout(function(){b.textContent='Copy email'},1800)};
+// marquee
+var items=['AWS','EC2','VPC','IAM','Lambda','ECS','CloudWatch','Route 53','WAF','KMS','Python','Docker','Linux','Bash','SQL','Scikit-Learn'],h='';
+for(var k=0;k<2;k++)items.forEach(function(x){h+='<span>'+x+'</span><span>·</span>'});$('#track').innerHTML=h;
+// typing
+var words=['resilient cloud infrastructure','Multi-AZ, always-on systems','secure BFSI workloads','cost-efficient AWS platforms'],wi=0,ci=0,del=false,el=$('#typed');
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){el.textContent=words[0]}else(function tick(){var w=words[wi];ci+=del?-1:1;el.textContent=w.slice(0,ci);var s=del?30:60;if(!del&&ci===w.length){del=true;s=1600}else if(del&&ci===0){del=false;wi=(wi+1)%words.length;s=350}setTimeout(tick,s)})();
+// reveal + counters
+function count(n){var to=parseFloat(n.dataset.n),d=+n.dataset.d||0,p=n.dataset.p||'',s=n.dataset.s||'',t0=null;(function f(t){t0=t0||t;var r=Math.min((t-t0)/1100,1);n.textContent=p+(to*(1-Math.pow(1-r,3))).toFixed(d)+s;if(r<1)requestAnimationFrame(f)})(performance.now())}
+var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');x.target.querySelectorAll('[data-n]').forEach(count);io.unobserve(x.target)}})},{threshold:.12}):null;
+document.querySelectorAll('.rv').forEach(function(e){if(io)io.observe(e);else{e.classList.add('in');e.querySelectorAll('[data-n]').forEach(function(n){n.textContent=(n.dataset.p||'')+n.dataset.n+(n.dataset.s||'')})}});
+addEventListener('scroll',function(){var h=root.scrollHeight-innerHeight;$('#bar').style.width=(h>0?scrollY/h*100:0)+'%'},{passive:true});
+</script>
+</body>
+</html>
